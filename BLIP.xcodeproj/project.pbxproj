@@ -1,0 +1,1123 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		27187EC01B03CC880057D7D2 /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 27187EC11B03CC880057D7D2 /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				27187EC51B03CC900057D7D2 /* PBXTargetDependency */,
+				27187EC71B03CC910057D7D2 /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		27187EAD1B03BFD80057D7D2 /* Properties_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 27187EAC1B03BFD80057D7D2 /* Properties_Test.m */; };
+		27187EB21B03C03D0057D7D2 /* Properties_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 27187EAC1B03BFD80057D7D2 /* Properties_Test.m */; };
+		27187EBE1B03C0F80057D7D2 /* libBLIP-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B091B0281AC0013B9A9 /* libBLIP-Mac.a */; };
+		27187EBF1B03C0F80057D7D2 /* libMYUtilities-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B5A1B0283D10013B9A9 /* libMYUtilities-Mac.a */; };
+		275D3A151B0273020013B9A9 /* libBLIP-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3A091B0273020013B9A9 /* libBLIP-iOS.a */; };
+		275D3A3D1B02758A0013B9A9 /* BLIPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A261B02758A0013B9A9 /* BLIPConnection.m */; };
+		275D3A3E1B02758A0013B9A9 /* BLIPHTTPLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A291B02758A0013B9A9 /* BLIPHTTPLogic.m */; };
+		275D3A401B02758A0013B9A9 /* BLIPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A2D1B02758A0013B9A9 /* BLIPMessage.m */; };
+		275D3A411B02758A0013B9A9 /* BLIPPocketSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A301B02758A0013B9A9 /* BLIPPocketSocketConnection.m */; };
+		275D3A421B02758A0013B9A9 /* BLIPPocketSocketListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A321B02758A0013B9A9 /* BLIPPocketSocketListener.m */; };
+		275D3A441B02758A0013B9A9 /* BLIPProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A361B02758A0013B9A9 /* BLIPProperties.m */; };
+		275D3A451B02758A0013B9A9 /* BLIPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A381B02758A0013B9A9 /* BLIPRequest.m */; };
+		275D3A471B02758A0013B9A9 /* BLIPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A3C1B02758A0013B9A9 /* BLIPResponse.m */; };
+		275D3AD81B0279460013B9A9 /* libPocketSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3AD31B0277830013B9A9 /* libPocketSocket.a */; };
+		275D3AEE1B0281AC0013B9A9 /* BLIPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A3C1B02758A0013B9A9 /* BLIPResponse.m */; };
+		275D3AEF1B0281AC0013B9A9 /* BLIPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A2D1B02758A0013B9A9 /* BLIPMessage.m */; };
+		275D3AF01B0281AC0013B9A9 /* BLIPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A261B02758A0013B9A9 /* BLIPConnection.m */; };
+		275D3AF11B0281AC0013B9A9 /* BLIPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A381B02758A0013B9A9 /* BLIPRequest.m */; };
+		275D3AF21B0281AC0013B9A9 /* BLIPPocketSocketListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A321B02758A0013B9A9 /* BLIPPocketSocketListener.m */; };
+		275D3AF31B0281AC0013B9A9 /* BLIPHTTPLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A291B02758A0013B9A9 /* BLIPHTTPLogic.m */; };
+		275D3AF41B0281AC0013B9A9 /* BLIPPocketSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A301B02758A0013B9A9 /* BLIPPocketSocketConnection.m */; };
+		275D3AF51B0281AC0013B9A9 /* BLIPProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A361B02758A0013B9A9 /* BLIPProperties.m */; };
+		275D3B0F1B0281F00013B9A9 /* libPocketSocket-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B0C1B0281AC0013B9A9 /* libPocketSocket-Mac.a */; };
+		275D3B2C1B0283740013B9A9 /* CollectionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A4B1B0276550013B9A9 /* CollectionUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B2E1B0283750013B9A9 /* ExceptionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A4F1B0276550013B9A9 /* ExceptionUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B301B0283750013B9A9 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A521B0276560013B9A9 /* Logging.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B321B0283750013B9A9 /* MYBlockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A561B0276560013B9A9 /* MYBlockUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B341B0283750013B9A9 /* MYBuffer+Zip.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A581B0276560013B9A9 /* MYBuffer+Zip.m */; };
+		275D3B361B0283750013B9A9 /* MYBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A5A1B0276560013B9A9 /* MYBuffer.m */; };
+		275D3B381B0283750013B9A9 /* MYData.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A5C1B0276560013B9A9 /* MYData.m */; };
+		275D3B3A1B0283750013B9A9 /* MYErrorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A601B0276560013B9A9 /* MYErrorUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B3C1B0283750013B9A9 /* MYStreamUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A661B0276560013B9A9 /* MYStreamUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B3E1B0283750013B9A9 /* MYURLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A6A1B0276560013B9A9 /* MYURLUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B401B0283750013B9A9 /* MYZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A701B0276560013B9A9 /* MYZip.m */; };
+		275D3B421B0283750013B9A9 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A781B0276560013B9A9 /* Test.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B431B0283750013B9A9 /* Test_Assertions.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A791B0276560013B9A9 /* Test_Assertions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B481B0283D10013B9A9 /* CollectionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A4B1B0276550013B9A9 /* CollectionUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B491B0283D10013B9A9 /* ExceptionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A4F1B0276550013B9A9 /* ExceptionUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B4A1B0283D10013B9A9 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A521B0276560013B9A9 /* Logging.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B4B1B0283D10013B9A9 /* MYBlockUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A561B0276560013B9A9 /* MYBlockUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B4C1B0283D10013B9A9 /* MYBuffer+Zip.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A581B0276560013B9A9 /* MYBuffer+Zip.m */; };
+		275D3B4D1B0283D10013B9A9 /* MYBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A5A1B0276560013B9A9 /* MYBuffer.m */; };
+		275D3B4E1B0283D10013B9A9 /* MYData.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A5C1B0276560013B9A9 /* MYData.m */; };
+		275D3B4F1B0283D10013B9A9 /* MYErrorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A601B0276560013B9A9 /* MYErrorUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B501B0283D10013B9A9 /* MYStreamUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A661B0276560013B9A9 /* MYStreamUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B511B0283D10013B9A9 /* MYURLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A6A1B0276560013B9A9 /* MYURLUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B521B0283D10013B9A9 /* MYZip.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A701B0276560013B9A9 /* MYZip.m */; };
+		275D3B531B0283D10013B9A9 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A781B0276560013B9A9 /* Test.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B541B0283D10013B9A9 /* Test_Assertions.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A791B0276560013B9A9 /* Test_Assertions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		275D3B5D1B02845F0013B9A9 /* libMYUtilities-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B141B0283380013B9A9 /* libMYUtilities-iOS.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27187EBC1B03C0EC0057D7D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3AEA1B0281AC0013B9A9;
+			remoteInfo = "BLIP-Mac";
+		};
+		27187EC41B03CC900057D7D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3A081B0273020013B9A9;
+			remoteInfo = "BLIP-iOS";
+		};
+		27187EC61B03CC910057D7D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3AEA1B0281AC0013B9A9;
+			remoteInfo = "BLIP-Mac";
+		};
+		275D3A161B0273020013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3A081B0273020013B9A9;
+			remoteInfo = BLIP;
+		};
+		275D3AD21B0277830013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEE5E30A18B37DD500BAE47A;
+			remoteInfo = PocketSocket;
+		};
+		275D3AD41B0277830013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEE5E36018B37F8700BAE47A;
+			remoteInfo = PSAutobahnClientTests;
+		};
+		275D3AD61B0279390013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEE5E30918B37DD500BAE47A;
+			remoteInfo = PocketSocket;
+		};
+		275D3B0B1B0281AC0013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 275D3AE91B02811E0013B9A9;
+			remoteInfo = "PocketSocket-Mac";
+		};
+		275D3B0D1B0281E60013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3AD91B02811E0013B9A9;
+			remoteInfo = "PocketSocket-Mac";
+		};
+		275D3B441B0283CA0013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3B131B0283380013B9A9;
+			remoteInfo = "MYUtilities-iOS";
+		};
+		275D3B5B1B0284070013B9A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3B461B0283D10013B9A9;
+			remoteInfo = "MYUtilities-Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		275D3A071B0273020013B9A9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B051B0281AC0013B9A9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B121B0283380013B9A9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B561B0283D10013B9A9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		27187EAC1B03BFD80057D7D2 /* Properties_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties_Test.m; sourceTree = "<group>"; };
+		27187EBA1B03C03D0057D7D2 /* BLIPTests-Mac.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BLIPTests-Mac.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		275D3A091B0273020013B9A9 /* libBLIP-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBLIP-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		275D3A141B0273020013B9A9 /* BLIPTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BLIPTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		275D3A1A1B0273020013B9A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		275D3A231B02758A0013B9A9 /* BLIP_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIP_Internal.h; sourceTree = "<group>"; };
+		275D3A241B02758A0013B9A9 /* BLIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIP.h; sourceTree = "<group>"; };
+		275D3A251B02758A0013B9A9 /* BLIPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPConnection.h; sourceTree = "<group>"; };
+		275D3A261B02758A0013B9A9 /* BLIPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPConnection.m; sourceTree = "<group>"; };
+		275D3A271B02758A0013B9A9 /* BLIPConnection+Transport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BLIPConnection+Transport.h"; sourceTree = "<group>"; };
+		275D3A281B02758A0013B9A9 /* BLIPHTTPLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPHTTPLogic.h; sourceTree = "<group>"; };
+		275D3A291B02758A0013B9A9 /* BLIPHTTPLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPHTTPLogic.m; sourceTree = "<group>"; };
+		275D3A2C1B02758A0013B9A9 /* BLIPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPMessage.h; sourceTree = "<group>"; };
+		275D3A2D1B02758A0013B9A9 /* BLIPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPMessage.m; sourceTree = "<group>"; };
+		275D3A2E1B02758A0013B9A9 /* BLIPPocketSocket_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPPocketSocket_Internal.h; sourceTree = "<group>"; };
+		275D3A2F1B02758A0013B9A9 /* BLIPPocketSocketConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPPocketSocketConnection.h; sourceTree = "<group>"; };
+		275D3A301B02758A0013B9A9 /* BLIPPocketSocketConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPPocketSocketConnection.m; sourceTree = "<group>"; };
+		275D3A311B02758A0013B9A9 /* BLIPPocketSocketListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPPocketSocketListener.h; sourceTree = "<group>"; };
+		275D3A321B02758A0013B9A9 /* BLIPPocketSocketListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPPocketSocketListener.m; sourceTree = "<group>"; };
+		275D3A331B02758A0013B9A9 /* BLIPPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPPool.h; sourceTree = "<group>"; };
+		275D3A341B02758A0013B9A9 /* BLIPPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPPool.m; sourceTree = "<group>"; };
+		275D3A351B02758A0013B9A9 /* BLIPProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPProperties.h; sourceTree = "<group>"; };
+		275D3A361B02758A0013B9A9 /* BLIPProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPProperties.m; sourceTree = "<group>"; };
+		275D3A371B02758A0013B9A9 /* BLIPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPRequest.h; sourceTree = "<group>"; };
+		275D3A381B02758A0013B9A9 /* BLIPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPRequest.m; sourceTree = "<group>"; };
+		275D3A3B1B02758A0013B9A9 /* BLIPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLIPResponse.h; sourceTree = "<group>"; };
+		275D3A3C1B02758A0013B9A9 /* BLIPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLIPResponse.m; sourceTree = "<group>"; };
+		275D3A4A1B0276550013B9A9 /* CollectionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionUtils.h; sourceTree = "<group>"; };
+		275D3A4B1B0276550013B9A9 /* CollectionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionUtils.m; sourceTree = "<group>"; };
+		275D3A4E1B0276550013B9A9 /* ExceptionUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExceptionUtils.h; sourceTree = "<group>"; };
+		275D3A4F1B0276550013B9A9 /* ExceptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExceptionUtils.m; sourceTree = "<group>"; };
+		275D3A511B0276550013B9A9 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		275D3A521B0276560013B9A9 /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logging.m; sourceTree = "<group>"; };
+		275D3A551B0276560013B9A9 /* MYBlockUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBlockUtils.h; sourceTree = "<group>"; };
+		275D3A561B0276560013B9A9 /* MYBlockUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBlockUtils.m; sourceTree = "<group>"; };
+		275D3A571B0276560013B9A9 /* MYBuffer+Zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MYBuffer+Zip.h"; sourceTree = "<group>"; };
+		275D3A581B0276560013B9A9 /* MYBuffer+Zip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MYBuffer+Zip.m"; sourceTree = "<group>"; };
+		275D3A591B0276560013B9A9 /* MYBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYBuffer.h; sourceTree = "<group>"; };
+		275D3A5A1B0276560013B9A9 /* MYBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYBuffer.m; sourceTree = "<group>"; };
+		275D3A5B1B0276560013B9A9 /* MYData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYData.h; sourceTree = "<group>"; };
+		275D3A5C1B0276560013B9A9 /* MYData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYData.m; sourceTree = "<group>"; };
+		275D3A5F1B0276560013B9A9 /* MYErrorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYErrorUtils.h; sourceTree = "<group>"; };
+		275D3A601B0276560013B9A9 /* MYErrorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYErrorUtils.m; sourceTree = "<group>"; };
+		275D3A651B0276560013B9A9 /* MYStreamUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYStreamUtils.h; sourceTree = "<group>"; };
+		275D3A661B0276560013B9A9 /* MYStreamUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYStreamUtils.m; sourceTree = "<group>"; };
+		275D3A691B0276560013B9A9 /* MYURLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYURLUtils.h; sourceTree = "<group>"; };
+		275D3A6A1B0276560013B9A9 /* MYURLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYURLUtils.m; sourceTree = "<group>"; };
+		275D3A6F1B0276560013B9A9 /* MYZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYZip.h; sourceTree = "<group>"; };
+		275D3A701B0276560013B9A9 /* MYZip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYZip.m; sourceTree = "<group>"; };
+		275D3A771B0276560013B9A9 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		275D3A781B0276560013B9A9 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		275D3A791B0276560013B9A9 /* Test_Assertions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_Assertions.m; sourceTree = "<group>"; };
+		275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PocketSocket.xcodeproj; path = PocketSocket/PocketSocket.xcodeproj; sourceTree = "<group>"; };
+		275D3B091B0281AC0013B9A9 /* libBLIP-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBLIP-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		275D3B141B0283380013B9A9 /* libMYUtilities-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMYUtilities-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		275D3B5A1B0283D10013B9A9 /* libMYUtilities-Mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMYUtilities-Mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		275D3B5E1B0285040013B9A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27187EB31B03C03D0057D7D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27187EBE1B03C0F80057D7D2 /* libBLIP-Mac.a in Frameworks */,
+				27187EBF1B03C0F80057D7D2 /* libMYUtilities-Mac.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3A061B0273020013B9A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275D3AD81B0279460013B9A9 /* libPocketSocket.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3A111B0273020013B9A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275D3B5D1B02845F0013B9A9 /* libMYUtilities-iOS.a in Frameworks */,
+				275D3A151B0273020013B9A9 /* libBLIP-iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B031B0281AC0013B9A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275D3B0F1B0281F00013B9A9 /* libPocketSocket-Mac.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B111B0283380013B9A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B551B0283D10013B9A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		275D3A001B0273020013B9A9 = {
+			isa = PBXGroup;
+			children = (
+				275D3B5E1B0285040013B9A9 /* README.md */,
+				275D3A0B1B0273020013B9A9 /* BLIP */,
+				275D3A181B0273020013B9A9 /* BLIPTests */,
+				275D3A481B0276550013B9A9 /* vendor */,
+				275D3A0A1B0273020013B9A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		275D3A0A1B0273020013B9A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				275D3A091B0273020013B9A9 /* libBLIP-iOS.a */,
+				275D3A141B0273020013B9A9 /* BLIPTests-iOS.xctest */,
+				275D3B091B0281AC0013B9A9 /* libBLIP-Mac.a */,
+				275D3B141B0283380013B9A9 /* libMYUtilities-iOS.a */,
+				275D3B5A1B0283D10013B9A9 /* libMYUtilities-Mac.a */,
+				27187EBA1B03C03D0057D7D2 /* BLIPTests-Mac.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		275D3A0B1B0273020013B9A9 /* BLIP */ = {
+			isa = PBXGroup;
+			children = (
+				275D3A231B02758A0013B9A9 /* BLIP_Internal.h */,
+				275D3A241B02758A0013B9A9 /* BLIP.h */,
+				275D3A251B02758A0013B9A9 /* BLIPConnection.h */,
+				275D3A261B02758A0013B9A9 /* BLIPConnection.m */,
+				275D3A271B02758A0013B9A9 /* BLIPConnection+Transport.h */,
+				275D3A281B02758A0013B9A9 /* BLIPHTTPLogic.h */,
+				275D3A291B02758A0013B9A9 /* BLIPHTTPLogic.m */,
+				275D3A2C1B02758A0013B9A9 /* BLIPMessage.h */,
+				275D3A2D1B02758A0013B9A9 /* BLIPMessage.m */,
+				275D3A2E1B02758A0013B9A9 /* BLIPPocketSocket_Internal.h */,
+				275D3A2F1B02758A0013B9A9 /* BLIPPocketSocketConnection.h */,
+				275D3A301B02758A0013B9A9 /* BLIPPocketSocketConnection.m */,
+				275D3A311B02758A0013B9A9 /* BLIPPocketSocketListener.h */,
+				275D3A321B02758A0013B9A9 /* BLIPPocketSocketListener.m */,
+				275D3A331B02758A0013B9A9 /* BLIPPool.h */,
+				275D3A341B02758A0013B9A9 /* BLIPPool.m */,
+				275D3A351B02758A0013B9A9 /* BLIPProperties.h */,
+				275D3A361B02758A0013B9A9 /* BLIPProperties.m */,
+				275D3A371B02758A0013B9A9 /* BLIPRequest.h */,
+				275D3A381B02758A0013B9A9 /* BLIPRequest.m */,
+				275D3A3B1B02758A0013B9A9 /* BLIPResponse.h */,
+				275D3A3C1B02758A0013B9A9 /* BLIPResponse.m */,
+			);
+			path = BLIP;
+			sourceTree = "<group>";
+		};
+		275D3A181B0273020013B9A9 /* BLIPTests */ = {
+			isa = PBXGroup;
+			children = (
+				27187EAC1B03BFD80057D7D2 /* Properties_Test.m */,
+				275D3A191B0273020013B9A9 /* Supporting Files */,
+			);
+			path = BLIPTests;
+			sourceTree = "<group>";
+		};
+		275D3A191B0273020013B9A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				275D3A1A1B0273020013B9A9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		275D3A481B0276550013B9A9 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				275D3A491B0276550013B9A9 /* MYUtilities */,
+				275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		275D3A491B0276550013B9A9 /* MYUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				275D3A4A1B0276550013B9A9 /* CollectionUtils.h */,
+				275D3A4B1B0276550013B9A9 /* CollectionUtils.m */,
+				275D3A4E1B0276550013B9A9 /* ExceptionUtils.h */,
+				275D3A4F1B0276550013B9A9 /* ExceptionUtils.m */,
+				275D3A511B0276550013B9A9 /* Logging.h */,
+				275D3A521B0276560013B9A9 /* Logging.m */,
+				275D3A551B0276560013B9A9 /* MYBlockUtils.h */,
+				275D3A561B0276560013B9A9 /* MYBlockUtils.m */,
+				275D3A571B0276560013B9A9 /* MYBuffer+Zip.h */,
+				275D3A581B0276560013B9A9 /* MYBuffer+Zip.m */,
+				275D3A591B0276560013B9A9 /* MYBuffer.h */,
+				275D3A5A1B0276560013B9A9 /* MYBuffer.m */,
+				275D3A5B1B0276560013B9A9 /* MYData.h */,
+				275D3A5C1B0276560013B9A9 /* MYData.m */,
+				275D3A5F1B0276560013B9A9 /* MYErrorUtils.h */,
+				275D3A601B0276560013B9A9 /* MYErrorUtils.m */,
+				275D3A651B0276560013B9A9 /* MYStreamUtils.h */,
+				275D3A661B0276560013B9A9 /* MYStreamUtils.m */,
+				275D3A691B0276560013B9A9 /* MYURLUtils.h */,
+				275D3A6A1B0276560013B9A9 /* MYURLUtils.m */,
+				275D3A6F1B0276560013B9A9 /* MYZip.h */,
+				275D3A701B0276560013B9A9 /* MYZip.m */,
+				275D3A771B0276560013B9A9 /* Test.h */,
+				275D3A781B0276560013B9A9 /* Test.m */,
+				275D3A791B0276560013B9A9 /* Test_Assertions.m */,
+			);
+			path = MYUtilities;
+			sourceTree = "<group>";
+		};
+		275D3ACE1B0277820013B9A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				275D3AD31B0277830013B9A9 /* libPocketSocket.a */,
+				275D3B0C1B0281AC0013B9A9 /* libPocketSocket-Mac.a */,
+				275D3AD51B0277830013B9A9 /* PSAutobahnClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27187EAE1B03C03D0057D7D2 /* BLIPTests-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27187EB71B03C03D0057D7D2 /* Build configuration list for PBXNativeTarget "BLIPTests-Mac" */;
+			buildPhases = (
+				27187EB11B03C03D0057D7D2 /* Sources */,
+				27187EB31B03C03D0057D7D2 /* Frameworks */,
+				27187EB61B03C03D0057D7D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27187EBD1B03C0EC0057D7D2 /* PBXTargetDependency */,
+			);
+			name = "BLIPTests-Mac";
+			productName = BLIPTests;
+			productReference = 27187EBA1B03C03D0057D7D2 /* BLIPTests-Mac.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		275D3A081B0273020013B9A9 /* BLIP-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275D3A1D1B0273020013B9A9 /* Build configuration list for PBXNativeTarget "BLIP-iOS" */;
+			buildPhases = (
+				275D3A051B0273020013B9A9 /* Sources */,
+				275D3A061B0273020013B9A9 /* Frameworks */,
+				275D3A071B0273020013B9A9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				275D3B451B0283CA0013B9A9 /* PBXTargetDependency */,
+				275D3AD71B0279390013B9A9 /* PBXTargetDependency */,
+			);
+			name = "BLIP-iOS";
+			productName = BLIP;
+			productReference = 275D3A091B0273020013B9A9 /* libBLIP-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		275D3A131B0273020013B9A9 /* BLIPTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275D3A201B0273020013B9A9 /* Build configuration list for PBXNativeTarget "BLIPTests-iOS" */;
+			buildPhases = (
+				275D3A101B0273020013B9A9 /* Sources */,
+				275D3A111B0273020013B9A9 /* Frameworks */,
+				275D3A121B0273020013B9A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				275D3A171B0273020013B9A9 /* PBXTargetDependency */,
+			);
+			name = "BLIPTests-iOS";
+			productName = BLIPTests;
+			productReference = 275D3A141B0273020013B9A9 /* BLIPTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		275D3AEA1B0281AC0013B9A9 /* BLIP-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275D3B061B0281AC0013B9A9 /* Build configuration list for PBXNativeTarget "BLIP-Mac" */;
+			buildPhases = (
+				275D3AED1B0281AC0013B9A9 /* Sources */,
+				275D3B031B0281AC0013B9A9 /* Frameworks */,
+				275D3B051B0281AC0013B9A9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				275D3B5C1B0284070013B9A9 /* PBXTargetDependency */,
+				275D3B0E1B0281E60013B9A9 /* PBXTargetDependency */,
+			);
+			name = "BLIP-Mac";
+			productName = BLIP;
+			productReference = 275D3B091B0281AC0013B9A9 /* libBLIP-Mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		275D3B131B0283380013B9A9 /* MYUtilities-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275D3B251B0283380013B9A9 /* Build configuration list for PBXNativeTarget "MYUtilities-iOS" */;
+			buildPhases = (
+				275D3B101B0283380013B9A9 /* Sources */,
+				275D3B111B0283380013B9A9 /* Frameworks */,
+				275D3B121B0283380013B9A9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MYUtilities-iOS";
+			productName = MYUtilities;
+			productReference = 275D3B141B0283380013B9A9 /* libMYUtilities-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		275D3B461B0283D10013B9A9 /* MYUtilities-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 275D3B571B0283D10013B9A9 /* Build configuration list for PBXNativeTarget "MYUtilities-Mac" */;
+			buildPhases = (
+				275D3B471B0283D10013B9A9 /* Sources */,
+				275D3B551B0283D10013B9A9 /* Frameworks */,
+				275D3B561B0283D10013B9A9 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MYUtilities-Mac";
+			productName = MYUtilities;
+			productReference = 275D3B5A1B0283D10013B9A9 /* libMYUtilities-Mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		275D3A011B0273020013B9A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BLIP;
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Couchbase, Inc";
+				TargetAttributes = {
+					27187EC01B03CC880057D7D2 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					275D3A081B0273020013B9A9 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					275D3A131B0273020013B9A9 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					275D3B131B0283380013B9A9 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 275D3A041B0273020013B9A9 /* Build configuration list for PBXProject "BLIP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 275D3A001B0273020013B9A9;
+			productRefGroup = 275D3A0A1B0273020013B9A9 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 275D3ACE1B0277820013B9A9 /* Products */;
+					ProjectRef = 275D3ACD1B0277820013B9A9 /* PocketSocket.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				275D3A081B0273020013B9A9 /* BLIP-iOS */,
+				275D3AEA1B0281AC0013B9A9 /* BLIP-Mac */,
+				275D3A131B0273020013B9A9 /* BLIPTests-iOS */,
+				27187EAE1B03C03D0057D7D2 /* BLIPTests-Mac */,
+				275D3B131B0283380013B9A9 /* MYUtilities-iOS */,
+				275D3B461B0283D10013B9A9 /* MYUtilities-Mac */,
+				27187EC01B03CC880057D7D2 /* All */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		275D3AD31B0277830013B9A9 /* libPocketSocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPocketSocket.a;
+			remoteRef = 275D3AD21B0277830013B9A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		275D3AD51B0277830013B9A9 /* PSAutobahnClientTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PSAutobahnClientTests.xctest;
+			remoteRef = 275D3AD41B0277830013B9A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		275D3B0C1B0281AC0013B9A9 /* libPocketSocket-Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPocketSocket-Mac.a";
+			remoteRef = 275D3B0B1B0281AC0013B9A9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27187EB61B03C03D0057D7D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3A121B0273020013B9A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27187EB11B03C03D0057D7D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27187EB21B03C03D0057D7D2 /* Properties_Test.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3A051B0273020013B9A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275D3A471B02758A0013B9A9 /* BLIPResponse.m in Sources */,
+				275D3A401B02758A0013B9A9 /* BLIPMessage.m in Sources */,
+				275D3A3D1B02758A0013B9A9 /* BLIPConnection.m in Sources */,
+				275D3A451B02758A0013B9A9 /* BLIPRequest.m in Sources */,
+				275D3A421B02758A0013B9A9 /* BLIPPocketSocketListener.m in Sources */,
+				275D3A3E1B02758A0013B9A9 /* BLIPHTTPLogic.m in Sources */,
+				275D3A411B02758A0013B9A9 /* BLIPPocketSocketConnection.m in Sources */,
+				275D3A441B02758A0013B9A9 /* BLIPProperties.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3A101B0273020013B9A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27187EAD1B03BFD80057D7D2 /* Properties_Test.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3AED1B0281AC0013B9A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275D3AEE1B0281AC0013B9A9 /* BLIPResponse.m in Sources */,
+				275D3AEF1B0281AC0013B9A9 /* BLIPMessage.m in Sources */,
+				275D3AF01B0281AC0013B9A9 /* BLIPConnection.m in Sources */,
+				275D3AF11B0281AC0013B9A9 /* BLIPRequest.m in Sources */,
+				275D3AF21B0281AC0013B9A9 /* BLIPPocketSocketListener.m in Sources */,
+				275D3AF31B0281AC0013B9A9 /* BLIPHTTPLogic.m in Sources */,
+				275D3AF41B0281AC0013B9A9 /* BLIPPocketSocketConnection.m in Sources */,
+				275D3AF51B0281AC0013B9A9 /* BLIPProperties.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B101B0283380013B9A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275D3B2C1B0283740013B9A9 /* CollectionUtils.m in Sources */,
+				275D3B2E1B0283750013B9A9 /* ExceptionUtils.m in Sources */,
+				275D3B301B0283750013B9A9 /* Logging.m in Sources */,
+				275D3B321B0283750013B9A9 /* MYBlockUtils.m in Sources */,
+				275D3B341B0283750013B9A9 /* MYBuffer+Zip.m in Sources */,
+				275D3B361B0283750013B9A9 /* MYBuffer.m in Sources */,
+				275D3B381B0283750013B9A9 /* MYData.m in Sources */,
+				275D3B3A1B0283750013B9A9 /* MYErrorUtils.m in Sources */,
+				275D3B3C1B0283750013B9A9 /* MYStreamUtils.m in Sources */,
+				275D3B3E1B0283750013B9A9 /* MYURLUtils.m in Sources */,
+				275D3B401B0283750013B9A9 /* MYZip.m in Sources */,
+				275D3B421B0283750013B9A9 /* Test.m in Sources */,
+				275D3B431B0283750013B9A9 /* Test_Assertions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		275D3B471B0283D10013B9A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				275D3B481B0283D10013B9A9 /* CollectionUtils.m in Sources */,
+				275D3B491B0283D10013B9A9 /* ExceptionUtils.m in Sources */,
+				275D3B4A1B0283D10013B9A9 /* Logging.m in Sources */,
+				275D3B4B1B0283D10013B9A9 /* MYBlockUtils.m in Sources */,
+				275D3B4C1B0283D10013B9A9 /* MYBuffer+Zip.m in Sources */,
+				275D3B4D1B0283D10013B9A9 /* MYBuffer.m in Sources */,
+				275D3B4E1B0283D10013B9A9 /* MYData.m in Sources */,
+				275D3B4F1B0283D10013B9A9 /* MYErrorUtils.m in Sources */,
+				275D3B501B0283D10013B9A9 /* MYStreamUtils.m in Sources */,
+				275D3B511B0283D10013B9A9 /* MYURLUtils.m in Sources */,
+				275D3B521B0283D10013B9A9 /* MYZip.m in Sources */,
+				275D3B531B0283D10013B9A9 /* Test.m in Sources */,
+				275D3B541B0283D10013B9A9 /* Test_Assertions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27187EBD1B03C0EC0057D7D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3AEA1B0281AC0013B9A9 /* BLIP-Mac */;
+			targetProxy = 27187EBC1B03C0EC0057D7D2 /* PBXContainerItemProxy */;
+		};
+		27187EC51B03CC900057D7D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3A081B0273020013B9A9 /* BLIP-iOS */;
+			targetProxy = 27187EC41B03CC900057D7D2 /* PBXContainerItemProxy */;
+		};
+		27187EC71B03CC910057D7D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3AEA1B0281AC0013B9A9 /* BLIP-Mac */;
+			targetProxy = 27187EC61B03CC910057D7D2 /* PBXContainerItemProxy */;
+		};
+		275D3A171B0273020013B9A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3A081B0273020013B9A9 /* BLIP-iOS */;
+			targetProxy = 275D3A161B0273020013B9A9 /* PBXContainerItemProxy */;
+		};
+		275D3AD71B0279390013B9A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PocketSocket;
+			targetProxy = 275D3AD61B0279390013B9A9 /* PBXContainerItemProxy */;
+		};
+		275D3B0E1B0281E60013B9A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PocketSocket-Mac";
+			targetProxy = 275D3B0D1B0281E60013B9A9 /* PBXContainerItemProxy */;
+		};
+		275D3B451B0283CA0013B9A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3B131B0283380013B9A9 /* MYUtilities-iOS */;
+			targetProxy = 275D3B441B0283CA0013B9A9 /* PBXContainerItemProxy */;
+		};
+		275D3B5C1B0284070013B9A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3B461B0283D10013B9A9 /* MYUtilities-Mac */;
+			targetProxy = 275D3B5B1B0284070013B9A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		27187EB81B03C03D0057D7D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BLIPTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "BLIPTests-Mac";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		27187EB91B03C03D0057D7D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BLIPTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "BLIPTests-Mac";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		27187EC21B03CC880057D7D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		27187EC31B03CC880057D7D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		275D3A1B1B0273020013B9A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		275D3A1C1B0273020013B9A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_MISSING_PROPERTY_SYNTHESIS = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		275D3A1E1B0273020013B9A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					vendor/PocketSocket/PocketSocket,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		275D3A1F1B0273020013B9A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					vendor/PocketSocket/PocketSocket,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		275D3A211B0273020013B9A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BLIPTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		275D3A221B0273020013B9A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BLIPTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		275D3B071B0281AC0013B9A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					vendor/PocketSocket/PocketSocket,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "BLIP-Mac";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		275D3B081B0281AC0013B9A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					vendor/PocketSocket/PocketSocket,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "BLIP-Mac";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+		275D3B261B0283380013B9A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		275D3B271B0283380013B9A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		275D3B581B0283D10013B9A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "MYUtilities-Mac";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		275D3B591B0283D10013B9A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "MYUtilities-Mac";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27187EB71B03C03D0057D7D2 /* Build configuration list for PBXNativeTarget "BLIPTests-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27187EB81B03C03D0057D7D2 /* Debug */,
+				27187EB91B03C03D0057D7D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27187EC11B03CC880057D7D2 /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27187EC21B03CC880057D7D2 /* Debug */,
+				27187EC31B03CC880057D7D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275D3A041B0273020013B9A9 /* Build configuration list for PBXProject "BLIP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275D3A1B1B0273020013B9A9 /* Debug */,
+				275D3A1C1B0273020013B9A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275D3A1D1B0273020013B9A9 /* Build configuration list for PBXNativeTarget "BLIP-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275D3A1E1B0273020013B9A9 /* Debug */,
+				275D3A1F1B0273020013B9A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275D3A201B0273020013B9A9 /* Build configuration list for PBXNativeTarget "BLIPTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275D3A211B0273020013B9A9 /* Debug */,
+				275D3A221B0273020013B9A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275D3B061B0281AC0013B9A9 /* Build configuration list for PBXNativeTarget "BLIP-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275D3B071B0281AC0013B9A9 /* Debug */,
+				275D3B081B0281AC0013B9A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275D3B251B0283380013B9A9 /* Build configuration list for PBXNativeTarget "MYUtilities-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275D3B261B0283380013B9A9 /* Debug */,
+				275D3B271B0283380013B9A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		275D3B571B0283D10013B9A9 /* Build configuration list for PBXNativeTarget "MYUtilities-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				275D3B581B0283D10013B9A9 /* Debug */,
+				275D3B591B0283D10013B9A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 275D3A011B0273020013B9A9 /* Project object */;
+}
