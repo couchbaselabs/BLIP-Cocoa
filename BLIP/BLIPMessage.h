@@ -46,13 +46,13 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) __attribute__ ((
     is complete will be left in the .body property.
     (Note: If the message is compressed, onDataReceived won't be called while data arrives, just
     once at the end after decompression. This may be improved in the future.) */
-@property (strong) void (^onDataReceived)(id<MYReader>);
+@property (strong) void (^onDataReceived)(BLIPMessage*, id<MYReader>);
 
 /** Called after message data is sent over the socket. */
-@property (strong) void (^onDataSent)(uint64_t totalBytesSent);
+@property (strong) void (^onDataSent)(BLIPMessage*, uint64_t totalBytesSent);
 
 /** Called when the message has been completely sent over the socket. */
-@property (strong) void (^onSent)();
+@property (strong) void (^onSent)(BLIPMessage*);
 
 /** This message's serial number in its connection.
     A BLIPRequest's number is initially zero, then assigned when it's sent.

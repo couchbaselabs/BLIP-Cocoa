@@ -311,7 +311,7 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
           (unsigned long)prevBytesWritten, (unsigned long)_bytesWritten,
           (*outMoreComing ? @"" : @" (finished)"));
     if (_onDataSent)
-        _onDataSent(_bytesWritten);
+        _onDataSent(self, _bytesWritten);
     if (!*outMoreComing)
         self.complete = YES;
     return frame;
@@ -378,7 +378,7 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
     if (_properties && _onDataReceived) {
         LogTo(BLIPVerbose, @"%@ -> calling onDataReceived(%lu bytes)",
               self, (unsigned long)_encodedBody.maxLength);
-        _onDataReceived(_encodedBody);
+        _onDataReceived(self, _encodedBody);
     }
 
     if (! (flags & kBLIP_MoreComing)) {

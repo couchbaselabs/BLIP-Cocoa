@@ -138,7 +138,7 @@
     [super setComplete: complete];
     if (complete && _onComplete) {
         @try{
-            _onComplete();
+            _onComplete(self);
         }catchAndReport(@"BLIPRequest onComplete block");
         _onComplete = nil;
     }
