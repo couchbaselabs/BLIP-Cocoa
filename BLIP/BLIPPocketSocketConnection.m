@@ -86,7 +86,7 @@
     NSError* error = self.error;
     if (error == nil) {
         [_webSocket close];
-    } else if ([error.domain isEqualToString: @"PSWebSocket"]) {
+    } else if ([error.domain isEqualToString: @"WebSocketCloseCode"]) {
         [_webSocket closeWithCode: error.code reason: error.localizedFailureReason];
     } else {
         Warn(@"BLIPPocketSocketConnection closing due to %@", error);
@@ -122,7 +122,10 @@
 
 // WebSocket delegate method
 - (void) webSocket: (PSWebSocket *)webSocket didFailWithError: (NSError *)error {
-    if ([error my_hasDomain: PSWebSocketErrorDomain code: PSWebSocketErrorCodeHandshakeFailed]) {
+    if ([error my_hasDomain: PSWebSocketErrorDomain code: PSWebSocketErrorCodeTimedOut]) {
+        error = [NSError errorWithDomain: NSURLErrorDomain code: NSURLErrorTimedOut
+                                userInfo: error.userInfo];
+    } else if ([error my_hasDomain: PSWebSocketErrorDomain code: PSWebSocketErrorCodeHandshakeFailed]) {
         // HTTP error; ask _httpLogic what to do:
         CFHTTPMessageRef response = (__bridge CFHTTPMessageRef)error.userInfo[PSHTTPResponseErrorKey];
         [_httpLogic receivedResponse: response];
@@ -146,7 +149,7 @@
     NSError* error = nil;
     if (code != PSWebSocketStatusCodeNormal || !wasClean) {
         NSDictionary* info = $dict({NSLocalizedFailureReasonErrorKey, reason});
-        error = [NSError errorWithDomain: @"PSWebSocket" code: code userInfo: info];
+        error = [NSError errorWithDomain: @"WebSocketCloseCode" code: code userInfo: info];
     }
     [self transportDidCloseWithError: error];
 }
