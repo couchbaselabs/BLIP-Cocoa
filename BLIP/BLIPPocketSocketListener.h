@@ -38,6 +38,10 @@
 
 #pragma mark - PROTECTED:
 
+- (void) listenerDidStart;
+- (void) listenerDidStop;
+- (void) listenerDidFailWithError: (NSError*)error;
+
 - (void)blipConnectionDidOpen:(BLIPConnection*)b;
 
 + (BOOL) fromRequest: (NSURLRequest*)request

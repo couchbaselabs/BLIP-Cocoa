@@ -63,6 +63,7 @@
 
 - (void)serverDidStart:(PSWebSocketServer *)server {
     Log(@"BLIPPocketSocketListener is listening...");
+    [self listenerDidStart];
 }
 
 - (void)serverDidStop:(PSWebSocketServer *)server {
@@ -70,14 +71,19 @@
     _server = nil;
     _delegate = nil;
     _sockets = nil;
+    [self listenerDidStop];
 }
 
 - (void)server:(PSWebSocketServer *)server
         didFailWithError:(NSError *)error
 {
     Log(@"BLIPPocketSocketListener failed to open: %@", error);
+    [self listenerDidFailWithError: error];
 }
 
+- (void)listenerDidStart { }
+- (void)listenerDidStop { }
+- (void)listenerDidFailWithError:(NSError *)error { }
 
 - (void) disconnect {
     [_server stop];
