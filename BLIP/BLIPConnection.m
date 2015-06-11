@@ -344,7 +344,8 @@ static char kQueueSpecificKey = 0;
             void (^onSent)() = moreComing ? nil : msg.onSent;
             dispatch_async(_transportQueue, ^{
                 // SHAZAM! Send the frame to the transport:
-                [self sendFrame: frame];
+                if (frame)
+                    [self sendFrame: frame];
 
                 if (moreComing) {
                     // add the message back so it can send its next frame later:

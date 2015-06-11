@@ -125,17 +125,37 @@
     if ([error my_hasDomain: PSWebSocketErrorDomain code: PSWebSocketErrorCodeTimedOut]) {
         error = [NSError errorWithDomain: NSURLErrorDomain code: NSURLErrorTimedOut
                                 userInfo: error.userInfo];
+    } else if ([error my_hasDomain: NSOSStatusErrorDomain code: errSSLXCertChainInvalid]) {
+        error = [NSError errorWithDomain: NSURLErrorDomain
+                                    code: NSURLErrorServerCertificateUntrusted
+                                userInfo: nil];
     } else if ([error my_hasDomain: PSWebSocketErrorDomain code: PSWebSocketErrorCodeHandshakeFailed]) {
         // HTTP error; ask _httpLogic what to do:
         CFHTTPMessageRef response = (__bridge CFHTTPMessageRef)error.userInfo[PSHTTPResponseErrorKey];
+        NSInteger status = CFHTTPMessageGetResponseStatusCode(response);
         [_httpLogic receivedResponse: response];
         if (_httpLogic.shouldRetry) {
-            LogTo(BLIP, @"%@ got HTTP response %ld, retrying...",
-                  self, CFHTTPMessageGetResponseStatusCode(response));
+            LogTo(BLIP, @"%@ got HTTP response %ld, retrying...", self, status);
             _webSocket.delegate = nil;
             [self connect: NULL];
             return;
         }
+        NSString* message = CFBridgingRelease(CFHTTPMessageCopyResponseStatusLine(response));
+        // Failed, but map the error back to HTTP:
+        NSString* urlStr = webSocket.URLRequest.URL.absoluteString;
+        error = [NSError errorWithDomain: @"HTTP"
+                                    code: status
+                                userInfo: @{NSLocalizedDescriptionKey: message,
+                                            NSURLErrorFailingURLStringErrorKey: urlStr}];
+    } else {
+        NSDictionary* kErrorMap = @{
+            PSWebSocketErrorDomain: @{@(PSWebSocketErrorCodeTimedOut):
+                                          @[NSURLErrorDomain, @(NSURLErrorTimedOut)]},
+            NSOSStatusErrorDomain: @{@(NSURLErrorServerCertificateUntrusted):
+                                        @[NSURLErrorDomain, @(NSURLErrorServerCertificateUntrusted)]},
+            (id)kCFErrorDomainCFNetwork: @{@(kCFHostErrorUnknown): @[NSURLErrorDomain, @(kCFURLErrorCannotFindHost)]},
+            };
+        error = MYMapError(error, kErrorMap);
     }
     [self transportDidCloseWithError: error];
 }

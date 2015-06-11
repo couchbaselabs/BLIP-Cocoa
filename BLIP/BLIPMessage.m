@@ -290,8 +290,14 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
         frame.length = maxSize;
         ssize_t bytesRead = [_outgoing readBytes: (uint8_t*)frame.mutableBytes + frameLen
                                        maxLength: maxSize - frameLen];
-        if (bytesRead < 0)
+        if (bytesRead < 0) {
+            // Yikes! Couldn't read message content. Abort.
+            Warn(@"Unable to send %@: Couldn't read body from stream", self);
+            if (_onDataSent)
+                _onDataSent(self, 0);
+            self.complete = YES;
             return nil;
+        }
         frame.length = frameLen + bytesRead;
         _bytesWritten += bytesRead;
     }

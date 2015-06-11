@@ -12,7 +12,7 @@
 
 - (instancetype) initWithPath: (NSString*)path
                      delegate: (id<BLIPConnectionDelegate>)delegate
-                        queue: (dispatch_queue_t)queue;
+                        queue: (dispatch_queue_t)queue NS_DESIGNATED_INITIALIZER;
 
 /** Starts the listener.
     @param interface  The name of the network interface, or nil to listen on all interfaces
@@ -26,6 +26,8 @@
 
 /** Stops the listener from accepting any more connections. */
 - (void) disconnect;
+
+@property (readonly) uint16_t port;
 
 #pragma mark - AUTHENTICATION:
 

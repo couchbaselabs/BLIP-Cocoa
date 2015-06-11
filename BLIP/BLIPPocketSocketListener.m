@@ -91,6 +91,10 @@
     _sockets = nil;
 }
 
+- (uint16_t) port {
+    return _server.realPort;
+}
+
 
 #pragma mark - AUTHENTICATION:
 
