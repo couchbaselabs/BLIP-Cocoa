@@ -49,6 +49,11 @@
     return self;
 }
 
+- (instancetype)init {
+    NSAssert(NO, @"init method is unavailable");
+    return nil;
+}
+
 - (BOOL) acceptOnInterface: (NSString*)interface
                       port: (uint16_t)port
                      error: (NSError**)error

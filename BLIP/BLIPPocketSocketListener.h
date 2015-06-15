@@ -14,6 +14,8 @@
                      delegate: (id<BLIPConnectionDelegate>)delegate
                         queue: (dispatch_queue_t)queue NS_DESIGNATED_INITIALIZER;
 
+- (instancetype) init NS_UNAVAILABLE;
+
 /** Starts the listener.
     @param interface  The name of the network interface, or nil to listen on all interfaces
         (See the GCDAsyncSocket documentation for more details.)

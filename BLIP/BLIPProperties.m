@@ -112,14 +112,13 @@ NSDictionary* BLIPReadPropertiesFromBuffer(MYBuffer* buffer, BOOL *complete) {
 
 static void appendStr( NSMutableData *data, NSString *str ) {
     const char *utf8 = [str UTF8String];
-    size_t size = strlen(utf8)+1;
     for (uint8_t i=0; i<kNAbbreviations; i++)
-        if (memcmp(utf8,kAbbreviations[i],size)==0) {
+        if (strcmp(utf8,kAbbreviations[i])==0) {
             const UInt8 abbrev[2] = {i+1,0};
             [data appendBytes: &abbrev length: 2];
             return;
         }
-    [data appendBytes: utf8 length: size];
+    [data appendBytes: utf8 length: strlen(utf8)+1];
 }
 
 NSData* BLIPEncodeProperties(NSDictionary* properties) {
