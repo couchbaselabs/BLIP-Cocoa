@@ -32,6 +32,8 @@
     selectors converted to NSStrings via NSStringFromSelector(). */
 - (void) registerDelegateActions: (NSDictionary*)actions;
 
+@property (readonly) id<BLIPConnectionDelegate> delegate;
+
 /** URL this socket is connected to, _if_ it's a client socket; if it's an incoming one received
     by a BLIPConnectionListener, this is nil. */
 @property (readonly) NSURL* URL;
@@ -75,6 +77,9 @@
     All methods are optional. */
 @protocol BLIPConnectionDelegate <NSObject>
 @optional
+
+- (BOOL)blipConnection: (BLIPConnection*)connection
+   validateServerTrust: (SecTrustRef)trust;
 
 - (void)blipConnectionDidOpen:(BLIPConnection*)connection;
 

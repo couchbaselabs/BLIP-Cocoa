@@ -121,6 +121,12 @@
 }
 
 // WebSocket delegate method
+- (BOOL)webSocket:(PSWebSocket *)webSocket validateServerTrust: (SecTrustRef)trust {
+    return [self.delegate respondsToSelector: @selector(blipConnection:validateServerTrust:)]
+        && [self.delegate blipConnection: self validateServerTrust: trust];
+}
+
+// WebSocket delegate method
 - (void) webSocket: (PSWebSocket *)webSocket didFailWithError: (NSError *)error {
     if ([error my_hasDomain: PSWebSocketErrorDomain code: PSWebSocketErrorCodeTimedOut]) {
         error = [NSError errorWithDomain: NSURLErrorDomain code: NSURLErrorTimedOut
