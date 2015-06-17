@@ -51,11 +51,11 @@ static char kQueueSpecificKey = 0;
     
     NSMutableArray *_outBox;            // Outgoing messages to be sent
     NSMutableArray *_iceBox;            // Outgoing messages paused pending acks
+    BLIPMessage* _sendingMsg;           // Message currently being sent (popped from _outBox)
     uint32_t _numRequestsSent;
 
     uint32_t _numRequestsReceived;
-    NSMutableDictionary *_pendingRequests, *_pendingResponses;
-    NSUInteger _poppedMessageCount;
+    NSMutableDictionary *_pendingRequests, *_pendingResponses; // Messages being received
     NSUInteger _pendingDelegateCalls;
 #if DEBUG
     NSUInteger _maxPendingDelegateCalls;
@@ -64,7 +64,7 @@ static char kQueueSpecificKey = 0;
 }
 
 @synthesize error=_error, dispatchPartialMessages=_dispatchPartialMessages, active=_active;
-@synthesize transportQueue=_transportQueue;
+@synthesize delegate=_delegate, transportQueue=_transportQueue;
 
 
 - (instancetype) initWithTransportQueue: (dispatch_queue_t)transportQueue
@@ -137,7 +137,7 @@ static char kQueueSpecificKey = 0;
 
 - (void) updateActive {
     BOOL active = _outBox.count || _iceBox.count || _pendingRequests.count ||
-                    _pendingResponses.count || _poppedMessageCount || _pendingDelegateCalls;
+                    _pendingResponses.count || _sendingMsg || _pendingDelegateCalls;
     if (active != _active) {
         LogTo(BLIPVerbose, @"%@ active = %@", self, (active ?@"YES" : @"NO"));
         self.active = active;
@@ -232,6 +232,10 @@ static char kQueueSpecificKey = 0;
 
 
 - (void) _queueMessage: (BLIPMessage*)msg isNew: (BOOL)isNew sendNow: (BOOL)sendNow {
+    Assert(![_outBox containsObject: msg]);
+    Assert(![_iceBox containsObject: msg]);
+    Assert(msg != _sendingMsg);
+
     NSInteger n = _outBox.count, index;
     if (msg.urgent && n > 1) {
         // High-priority gets queued after the last existing high-priority message,
@@ -271,6 +275,8 @@ static char kQueueSpecificKey = 0;
 
 
 - (void) _pauseMessage: (BLIPMessage*)msg {
+    Assert(![_outBox containsObject: msg]);
+    Assert(![_iceBox containsObject: msg]);
     LogTo(BLIPVerbose, @"%@: Pausing %@", self, msg);
     if (!_iceBox)
         _iceBox = [NSMutableArray new];
@@ -279,11 +285,15 @@ static char kQueueSpecificKey = 0;
 
 
 - (void) _unpauseMessage: (BLIPMessage*)msg {
+    if (!_iceBox)
+        return;
     NSUInteger index = [_iceBox indexOfObjectIdenticalTo: msg];
     if (index != NSNotFound) {
+        Assert(![_outBox containsObject: msg]);
         LogTo(BLIPVerbose, @"%@: Resuming %@", self, msg);
         [_iceBox removeObjectAtIndex: index];
-        [self _queueMessage: msg isNew: NO sendNow: YES];
+        if (msg != _sendingMsg)
+            [self _queueMessage: msg isNew: NO sendNow: YES];
     }
 }
 
@@ -323,12 +333,12 @@ static char kQueueSpecificKey = 0;
 // Subclasses call this
 // Pull a frame from the outBox queue and send it to the transport:
 - (void) feedTransport {
-    if (_outBox.count > 0) {
+    if (_outBox.count > 0 && !_sendingMsg) {
         // Pop first message in queue:
         BLIPMessage *msg = _outBox[0];
         [_outBox removeObjectAtIndex: 0];
-        ++_poppedMessageCount; // remember that this message is still active
-        
+        _sendingMsg = msg;      // Remember that this message is being sent
+
         // As an optimization, allow message to send a big frame unless there's a higher-priority
         // message right behind it:
         size_t frameSize = kDefaultFrameSize;
@@ -346,6 +356,7 @@ static char kQueueSpecificKey = 0;
                 // SHAZAM! Send the frame to the transport:
                 if (frame)
                     [self sendFrame: frame];
+                _sendingMsg = nil;
 
                 if (moreComing) {
                     // add the message back so it can send its next frame later:
@@ -357,7 +368,6 @@ static char kQueueSpecificKey = 0;
                     if (onSent)
                         [self _onDelegateQueue: onSent];
                 }
-                --_poppedMessageCount;
                 [self updateActive];
             });
         });
@@ -376,6 +386,8 @@ static char kQueueSpecificKey = 0;
         if (msg.number == number && msg.isRequest == isRequest)
             return msg;
     }
+    if (_sendingMsg.number == number && _sendingMsg.isRequest == isRequest)
+        return _sendingMsg;
     return nil;
 }
 

@@ -83,14 +83,19 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
 
 - (NSString*) description {
     NSUInteger length = (_body.length ?: _mutableBody.length) ?: _encodedBody.minLength;
-    NSMutableString *desc = [NSMutableString stringWithFormat: @"%@[#%u, %lu bytes",
-                             self.class,(unsigned int)_number, (unsigned long)length];
+    NSMutableString *desc = [NSMutableString stringWithFormat: @"%@[#%u%s, %lu bytes",
+                             self.class,
+                             (unsigned int)_number,
+                             (_isMine ? "->" : "<-"),
+                             (unsigned long)length];
     if (_flags & kBLIP_Compressed) {
         if (_encodedBody && _encodedBody.minLength != length)
             [desc appendFormat: @" (%lu gzipped)", (unsigned long)_encodedBody.minLength];
         else
             [desc appendString: @", gzipped"];
     }
+    if (_bodyStreams.count > 0)
+        [desc appendString: @" +stream"];
     if (_flags & kBLIP_Urgent)
         [desc appendString: @", urgent"];
     if (_flags & kBLIP_NoReply)
