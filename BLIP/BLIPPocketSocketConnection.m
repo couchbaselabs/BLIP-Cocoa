@@ -141,7 +141,7 @@
         NSInteger status = CFHTTPMessageGetResponseStatusCode(response);
         [_httpLogic receivedResponse: response];
         if (_httpLogic.shouldRetry) {
-            LogTo(BLIP, @"%@ got HTTP response %ld, retrying...", self, status);
+            LogTo(BLIP, @"%@ got HTTP response %ld, retrying...", self, (long)status);
             _webSocket.delegate = nil;
             [self connect: NULL];
             return;
