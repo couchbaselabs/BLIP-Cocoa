@@ -145,7 +145,7 @@
                                          (__bridge CFStringRef)[[self class] userAgent]);
 
     // If this is a retry, set auth headers from the credential we got:
-    if (_credential) {
+    if (_credential.user) {
         NSString* password = _credential.password;
         if (!password && _responseMsg) {
             // For some reason the password sometimes isn't accessible, even though we checked

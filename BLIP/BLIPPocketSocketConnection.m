@@ -77,6 +77,15 @@
     _webSocket = [PSWebSocket clientSocketWithRequest: _httpLogic.URLRequest];
     _webSocket.delegate = self;
     _webSocket.delegateQueue = self.transportQueue;
+
+    NSURLCredential* credential = _httpLogic.credential;
+    if (credential.identity) {
+        NSArray* certs = @[(__bridge id)credential.identity];
+        if (credential.certificates)
+            certs = [certs arrayByAddingObjectsFromArray: credential.certificates];
+        _webSocket.SSLClientCertificates = certs;
+    }
+    
     [_webSocket open];
     return YES;
 }
