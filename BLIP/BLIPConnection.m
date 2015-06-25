@@ -100,7 +100,7 @@ static char kQueueSpecificKey = 0;
     ++_pendingDelegateCalls;
 #if DEBUG
     if (_pendingDelegateCalls > _maxPendingDelegateCalls) {
-        Log(@"New record: %lu pending delegate calls", (unsigned long)_pendingDelegateCalls);
+        LogTo(BLIP, @"New record: %lu pending delegate calls", (unsigned long)_pendingDelegateCalls);
         _maxPendingDelegateCalls = _pendingDelegateCalls;
     }
 #endif
