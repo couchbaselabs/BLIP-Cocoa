@@ -22,8 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		271047BB1B43586500DDFF24 /* HTTPLogic_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 271047BA1B43586500DDFF24 /* HTTPLogic_Tests.m */; };
-		271047BC1B43586500DDFF24 /* HTTPLogic_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 271047BA1B43586500DDFF24 /* HTTPLogic_Tests.m */; };
 		27187EAD1B03BFD80057D7D2 /* Properties_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 27187EAC1B03BFD80057D7D2 /* Properties_Test.m */; };
 		27187EB21B03C03D0057D7D2 /* Properties_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 27187EAC1B03BFD80057D7D2 /* Properties_Test.m */; };
 		27187EBE1B03C0F80057D7D2 /* libBLIP-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B091B0281AC0013B9A9 /* libBLIP-Mac.a */; };
@@ -196,7 +194,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		271047BA1B43586500DDFF24 /* HTTPLogic_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPLogic_Tests.m; sourceTree = "<group>"; };
 		27187EAC1B03BFD80057D7D2 /* Properties_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties_Test.m; sourceTree = "<group>"; };
 		27187EBA1B03C03D0057D7D2 /* BLIPTests-Mac.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BLIPTests-Mac.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		275D3A091B0273020013B9A9 /* libBLIP-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBLIP-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,7 +362,6 @@
 			isa = PBXGroup;
 			children = (
 				27187EAC1B03BFD80057D7D2 /* Properties_Test.m */,
-				271047BA1B43586500DDFF24 /* HTTPLogic_Tests.m */,
 				275D3A191B0273020013B9A9 /* Supporting Files */,
 			);
 			path = BLIPTests;
@@ -640,7 +636,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				271047BC1B43586500DDFF24 /* HTTPLogic_Tests.m in Sources */,
 				27187EB21B03C03D0057D7D2 /* Properties_Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,7 +659,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				271047BB1B43586500DDFF24 /* HTTPLogic_Tests.m in Sources */,
 				27187EAD1B03BFD80057D7D2 /* Properties_Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

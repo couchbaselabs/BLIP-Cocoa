@@ -29,7 +29,6 @@
     NSString* _authorizationHeader;
     CFHTTPMessageRef _responseMsg;
     NSURLCredential* _credential;
-    BOOL _usedCredential;
     NSUInteger _redirectCount;
 }
 
@@ -146,9 +145,9 @@
                                          (__bridge CFStringRef)[[self class] userAgent]);
 
     // If this is a retry, set auth headers from the credential we got:
-    if (_responseMsg && !_usedCredential && _credential.user) {
+    if (_credential.user) {
         NSString* password = _credential.password;
-        if (!password) {
+        if (!password && _responseMsg) {
             // For some reason the password sometimes isn't accessible, even though we checked
             // .hasPassword when setting _credential earlier. (See #195.) Keychain bug??
             // If this happens, try looking up the credential again:
@@ -158,15 +157,11 @@
             password = _credential.password;
         }
         if (password) {
-            Boolean ok = CFHTTPMessageAddAuthentication(httpMsg,
-                                                        _responseMsg,
-                                                        (__bridge CFStringRef)_credential.user,
-                                                        (__bridge CFStringRef)password,
-                                                        NULL,
-                                                        _httpStatus == 407);
-            if (!ok)
-                Warn(@"BLIPHTTPLogic: CFHTTPMessageAddAuthentication failed");
-            _usedCredential = YES;
+            Assert(CFHTTPMessageAddAuthentication(httpMsg, _responseMsg,
+                                                  (__bridge CFStringRef)_credential.user,
+                                                  (__bridge CFStringRef)password,
+                                                  kCFHTTPAuthenticationSchemeBasic,
+                                                  _httpStatus == 407));
         } else {
             Warn(@"%@: Unable to get password of credential %@", self, _credential);
             _credential = nil;
@@ -221,11 +216,9 @@
         case 401:
         case 407: {
             NSString* authResponse = getHeader(_responseMsg, @"WWW-Authenticate");
-            if (!_usedCredential && !_authorizationHeader) {
-                if (!_credential) {
-                    _credential = [self credentialForAuthHeader: authResponse];
-                    LogTo(ChangeTracker, @"%@: Auth challenge; credential = %@", self, _credential);
-                }
+            if (!_credential && !_authorizationHeader) {
+                _credential = [self credentialForAuthHeader: authResponse];
+                LogTo(ChangeTracker, @"%@: Auth challenge; credential = %@", self, _credential);
                 if (_credential) {
                     // Recoverable auth failure -- try again with new _credential:
                     _shouldRetry = YES;
@@ -290,7 +283,6 @@
         return nil;
     realm = [authHeader substringWithRange: NSMakeRange(start, r.location - start)];
 
-    // Look up credential in NSURLCredentialStorage (aka keychain):
     NSURLCredential* cred;
     cred = [self.URL my_credentialForRealm: realm authenticationMethod: authenticationMethod];
     if (!cred.hasPassword)
