@@ -28,7 +28,7 @@
 @implementation BLIPPocketSocketListener
 {
     PSWebSocketServer* _server;
-    NSString* _path;
+    NSArray* _paths;
     id<BLIPConnectionDelegate> _delegate;
     dispatch_queue_t _delegateQueue;
     NSMutableDictionary* _sockets;   // Maps NSValue (PSWebSocket*) to BLIPPocketSocketConnection
@@ -36,13 +36,13 @@
     NSMutableDictionary* _passwords;
 }
 
-- (instancetype) initWithPath: (NSString*)path
-                     delegate: (id<BLIPConnectionDelegate>)delegate
-                        queue: (dispatch_queue_t)queue
+- (instancetype) initWithPaths: (NSArray*)paths
+                      delegate: (id<BLIPConnectionDelegate>)delegate
+                         queue: (dispatch_queue_t)queue
 {
     self = [super init];
     if (self) {
-        _path = [path copy];
+        _paths = [paths copy];
         _delegate = delegate;
         _delegateQueue = queue ?: dispatch_get_main_queue();
     }
@@ -67,7 +67,7 @@
 }
 
 - (void)serverDidStart:(PSWebSocketServer *)server {
-    Log(@"BLIPPocketSocketListener is listening...");
+    Log(@"BLIPPocketSocketListener is listening on port %d...", _server.realPort);
     [self listenerDidStart];
 }
 
@@ -168,8 +168,8 @@
     } else {
         LogTo(BLIP, @"Authenticated user '%@'", username);
         NSString* path = request.URL.path;
-        if (![path isEqualToString: _path]) {
-            // Wrong path:
+        if (![_paths containsObject: path]) {
+            // Unknown path:
             status = 404;
         } else {
             // Success:

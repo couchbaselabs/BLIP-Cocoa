@@ -10,9 +10,9 @@
 
 @interface BLIPPocketSocketListener : NSObject
 
-- (instancetype) initWithPath: (NSString*)path
-                     delegate: (id<BLIPConnectionDelegate>)delegate
-                        queue: (dispatch_queue_t)queue NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithPaths: (NSArray*)paths
+                      delegate: (id<BLIPConnectionDelegate>)delegate
+                         queue: (dispatch_queue_t)queue NS_DESIGNATED_INITIALIZER;
 
 - (instancetype) init NS_UNAVAILABLE;
 
