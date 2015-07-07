@@ -56,10 +56,11 @@
 
 - (BOOL) acceptOnInterface: (NSString*)interface
                       port: (uint16_t)port
+           SSLCertificates: (NSArray*)certs
                      error: (NSError**)error
 {
     _sockets = [NSMutableDictionary new];
-    _server = [PSWebSocketServer serverWithHost: interface port: port];
+    _server = [PSWebSocketServer serverWithHost: interface port: port SSLCertificates: certs];
     _server.delegate = self;
     _server.delegateQueue = dispatch_queue_create("BLIP Listener", DISPATCH_QUEUE_SERIAL);
     [_server start];
@@ -67,12 +68,12 @@
 }
 
 - (void)serverDidStart:(PSWebSocketServer *)server {
-    Log(@"BLIPPocketSocketListener is listening on port %d...", _server.realPort);
+    LogTo(BLIP, @"BLIPPocketSocketListener is listening on port %d...", _server.realPort);
     [self listenerDidStart];
 }
 
 - (void)serverDidStop:(PSWebSocketServer *)server {
-    Log(@"BLIPPocketSocketListener stopped");
+    LogTo(BLIP, @"BLIPPocketSocketListener stopped");
     _server = nil;
     _delegate = nil;
     _sockets = nil;
@@ -82,7 +83,7 @@
 - (void)server:(PSWebSocketServer *)server
         didFailWithError:(NSError *)error
 {
-    Log(@"BLIPPocketSocketListener failed to open: %@", error);
+    Warn(@"BLIPPocketSocketListener failed to open: %@", error);
     [self listenerDidFailWithError: error];
 }
 

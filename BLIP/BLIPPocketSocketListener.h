@@ -20,10 +20,12 @@
     @param interface  The name of the network interface, or nil to listen on all interfaces
         (See the GCDAsyncSocket documentation for more details.)
     @param port  The TCP port to listen on.
+    @param certs  SSL identity and supporting certificates, or nil to not use SSL
     @param error  On return, will be filled in with an error if the method returned NO.
     @return  YES on success, NO on failure. */
 - (BOOL) acceptOnInterface: (NSString*)interface
                       port: (uint16_t)port
+           SSLCertificates: (NSArray*)certs
                      error: (NSError**)error;
 
 /** Stops the listener from accepting any more connections. */
