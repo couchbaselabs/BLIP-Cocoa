@@ -54,6 +54,9 @@
          getUsername: (NSString**)outUser
             password: (NSString**)outPassword;
 
+- (BOOL) checkClientCertificateAuthentication: (SecTrustRef)trust
+                                  fromAddress: (NSData*)address;
+
 @end
 
 

@@ -59,6 +59,8 @@
            SSLCertificates: (NSArray*)certs
                      error: (NSError**)error
 {
+    LogTo(BLIP, @"%@ opening on %@:%d at paths {'%@'}", self, interface, port,
+          [_paths componentsJoinedByString: @"', '"]);
     _sockets = [NSMutableDictionary new];
     _server = [PSWebSocketServer serverWithHost: interface port: port SSLCertificates: certs];
     _server.delegate = self;
@@ -153,29 +155,49 @@
 }
 
 
+- (BOOL) checkClientCertificateAuthentication: (SecTrustRef)trust
+                                  fromAddress: (NSData*)address
+{
+    return YES;
+}
+
+
+#pragma mark - DELEGATE:
+
+
 - (BOOL)server:(PSWebSocketServer *)server
-        acceptWebSocketWithRequest:(NSURLRequest *)request
+        acceptWebSocketFrom:(NSData*)address
+        withRequest:(NSURLRequest *)request
+        trust:(SecTrustRef)trust
         response:(NSHTTPURLResponse**)outResponse
 {
-    LogTo(BLIP, @"Got request for %@ ; headers = %@", request.URL, request.allHTTPHeaderFields);
+    LogTo(BLIP, @"Got request for %@ ; trust %@ ; headers = %@",
+          request.URL, trust, request.allHTTPHeaderFields);
+
     int status;
     NSDictionary* headers = nil;
-    NSString* username;
-    if (![self checkAuthentication: request user: &username]) {
-        // Auth failure:
-        LogTo(BLIP, @"Rejected bad login for user '%@'", username);
-        headers = @{@"WWW-Authenticate": $sprintf(@"Basic realm=\"%@\"", _realm)};
+    if (![self checkClientCertificateAuthentication: trust fromAddress: address]) {
+        LogTo(BLIP, @"Rejected bad client cert");
         status = 401;
     } else {
-        LogTo(BLIP, @"Authenticated user '%@'", username);
-        NSString* path = request.URL.path;
-        if (![_paths containsObject: path]) {
-            // Unknown path:
-            status = 404;
+        NSString* username;
+        if (![self checkAuthentication: request user: &username]) {
+            // Auth failure:
+            LogTo(BLIP, @"Rejected bad login for user '%@'", username);
+            headers = @{@"WWW-Authenticate": $sprintf(@"Basic realm=\"%@\"", _realm)};
+            status = 401;
         } else {
-            // Success:
-            status = 200;
-            headers = @{@"Sec-WebSocket-Protocol": @"BLIP"};
+            if (username)
+                LogTo(BLIP, @"Authenticated user '%@'", username);
+            NSString* path = request.URL.path;
+            if (![_paths containsObject: path]) {
+                // Unknown path:
+                status = 404;
+            } else {
+                // Success:
+                status = 200;
+                headers = @{@"Sec-WebSocket-Protocol": @"BLIP"};
+            }
         }
     }
 
@@ -185,9 +207,6 @@
                                              headerFields: headers];
     return (status < 300);
 }
-
-
-#pragma mark - DELEGATE:
 
 
 - (void)server:(PSWebSocketServer *)server
@@ -268,7 +287,20 @@
 @implementation BLIPPocketSocketConnection (Incoming)
 
 - (NSURLCredential*) credential {
-    NSURLRequest* request = self.webSocket.URLRequest;
+    // First check for an SSL client certificate:
+    PSWebSocket* webSocket = self.webSocket;
+    NSArray* clientCerts = webSocket.SSLClientCertificates;
+    if (clientCerts) {
+        if (clientCerts.count == 0)
+            return nil; // should never happen
+        SecIdentityRef identity = (__bridge SecIdentityRef)clientCerts[0];
+        clientCerts = [clientCerts subarrayWithRange: NSMakeRange(1, clientCerts.count -1)];
+        return [NSURLCredential credentialWithIdentity: identity certificates: clientCerts
+                                           persistence: NSURLCredentialPersistenceNone];
+    }
+
+    // Then check for HTTP auth:
+    NSURLRequest* request = webSocket.URLRequest;
     if (!request)
         return nil;
     NSString *username, *password;
