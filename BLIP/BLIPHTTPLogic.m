@@ -145,9 +145,9 @@
                                          (__bridge CFStringRef)[[self class] userAgent]);
 
     // If this is a retry, set auth headers from the credential we got:
-    if (_credential.user) {
+    if (_responseMsg && _credential.user) {
         NSString* password = _credential.password;
-        if (!password && _responseMsg) {
+        if (!password) {
             // For some reason the password sometimes isn't accessible, even though we checked
             // .hasPassword when setting _credential earlier. (See #195.) Keychain bug??
             // If this happens, try looking up the credential again:
@@ -155,15 +155,23 @@
             _credential = [self credentialForAuthHeader:
                                                 getHeader(_responseMsg, @"WWW-Authenticate")];
             password = _credential.password;
+            if (!password)
+                Warn(@"%@: Unable to get password of credential %@", self, _credential);
         }
-        if (password) {
-            Assert(CFHTTPMessageAddAuthentication(httpMsg, _responseMsg,
-                                                  (__bridge CFStringRef)_credential.user,
-                                                  (__bridge CFStringRef)password,
-                                                  kCFHTTPAuthenticationSchemeBasic,
-                                                  _httpStatus == 407));
-        } else {
-            Warn(@"%@: Unable to get password of credential %@", self, _credential);
+        if (!password ||
+            (!CFHTTPMessageAddAuthentication(httpMsg, _responseMsg,
+                                             (__bridge CFStringRef)_credential.user,
+                                             (__bridge CFStringRef)password,
+                                             NULL,
+                                             _httpStatus == 407)
+             && !CFHTTPMessageAddAuthentication(httpMsg, _responseMsg,
+                                                (__bridge CFStringRef)_credential.user,
+                                                (__bridge CFStringRef)password,
+                                                kCFHTTPAuthenticationSchemeBasic, // fallback
+                                                _httpStatus == 407)))
+        {
+            // The 2nd call above works around a bug where it can fail if the auth scheme is NULL.
+            Warn(@"%@: Unable to add authentication", self);
             _credential = nil;
             CFRelease(_responseMsg);
             _responseMsg = NULL;
@@ -216,8 +224,9 @@
         case 401:
         case 407: {
             NSString* authResponse = getHeader(_responseMsg, @"WWW-Authenticate");
-            if (!_credential && !_authorizationHeader) {
-                _credential = [self credentialForAuthHeader: authResponse];
+            if (!_authorizationHeader) {
+                if (!_credential)
+                    _credential = [self credentialForAuthHeader: authResponse];
                 LogTo(ChangeTracker, @"%@: Auth challenge; credential = %@", self, _credential);
                 if (_credential) {
                     // Recoverable auth failure -- try again with new _credential:
