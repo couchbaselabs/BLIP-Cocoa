@@ -76,6 +76,7 @@
 
 - (void)serverDidStop:(PSWebSocketServer *)server {
     LogTo(BLIP, @"BLIPPocketSocketListener stopped");
+    _server.delegate = nil;
     _server = nil;
     _delegate = nil;
     _sockets = nil;
@@ -94,7 +95,9 @@
 - (void)listenerDidFailWithError:(NSError *)error { }
 
 - (void) disconnect {
+    LogTo(BLIP, @"BLIPPocketSocketListener disconnect");
     [_server stop];
+    _server.delegate = nil;
     _server = nil;
     _sockets = nil;
 }
