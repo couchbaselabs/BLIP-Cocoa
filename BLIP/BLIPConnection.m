@@ -19,10 +19,12 @@
 #import "BLIP_Internal.h"
 
 #import "ExceptionUtils.h"
-#import "Logging.h"
-#import "Test.h"
 #import "MYData.h"
 #import <objc/message.h>
+
+
+DefineLogDomain(BLIP);
+DefineLogDomain(BLIPLifecycle);
 
 
 #define kDefaultFrameSize 4096
@@ -139,7 +141,7 @@ static char kQueueSpecificKey = 0;
     BOOL active = _outBox.count || _iceBox.count || _pendingRequests.count ||
                     _pendingResponses.count || _sendingMsg || _pendingDelegateCalls;
     if (active != _active) {
-        LogTo(BLIPVerbose, @"%@ active = %@", self, (active ?@"YES" : @"NO"));
+        LogVerbose(BLIP, @"%@ active = %@", self, (active ?@"YES" : @"NO"));
         self.active = active;
     }
 }
@@ -277,7 +279,7 @@ static char kQueueSpecificKey = 0;
 - (void) _pauseMessage: (BLIPMessage*)msg {
     Assert(![_outBox containsObject: msg]);
     Assert(![_iceBox containsObject: msg]);
-    LogTo(BLIPVerbose, @"%@: Pausing %@", self, msg);
+    LogVerbose(BLIP, @"%@: Pausing %@", self, msg);
     if (!_iceBox)
         _iceBox = [NSMutableArray new];
     [_iceBox addObject: msg];
@@ -290,7 +292,7 @@ static char kQueueSpecificKey = 0;
     NSUInteger index = [_iceBox indexOfObjectIdenticalTo: msg];
     if (index != NSNotFound) {
         Assert(![_outBox containsObject: msg]);
-        LogTo(BLIPVerbose, @"%@: Resuming %@", self, msg);
+        LogVerbose(BLIP, @"%@: Resuming %@", self, msg);
         [_iceBox removeObjectAtIndex: index];
         if (msg != _sendingMsg)
             [self _queueMessage: msg isNew: NO sendNow: YES];
@@ -372,7 +374,7 @@ static char kQueueSpecificKey = 0;
             });
         });
     } else {
-        //LogTo(BLIPVerbose,@"%@: no more work for writer",self);
+        //LogVerbose(BLIP,@"%@: no more work for writer",self);
     }
 }
 
@@ -397,7 +399,7 @@ static char kQueueSpecificKey = 0;
                   isRequest: (BOOL)isRequest
               bytesReceived: (uint64_t)bytesReceived
 {
-    LogTo(BLIPVerbose, @"%@: Sending %s of %u (%llu bytes)",
+    LogVerbose(BLIP, @"%@: Sending %s of %u (%llu bytes)",
           self, (isRequest ? "ACKMSG" : "ACKRPY"), number, bytesReceived);
     BLIPMessageFlags flags = (isRequest ?kBLIP_ACKMSG :kBLIP_ACKRPY) | kBLIP_Urgent | kBLIP_NoReply;
     char buf[3*10]; // max size of varint is 10 bytes
@@ -452,7 +454,7 @@ static char kQueueSpecificKey = 0;
 {
     static const char* kTypeStrs[8] = {"MSG","RPY","ERR","3??", "ACKMSG", "ACKRPY", "6??", "7??"};
     BLIPMessageType type = flags & kBLIP_TypeMask;
-    LogTo(BLIPVerbose,@"%@ rcvd frame of %s #%u, length %lu",self,kTypeStrs[type],(unsigned int)requestNumber,(unsigned long)body.length);
+    LogVerbose(BLIP,@"%@ rcvd frame of %s #%u, length %lu",self,kTypeStrs[type],(unsigned int)requestNumber,(unsigned long)body.length);
 
     id key = @(requestNumber);
     BOOL complete = ! (flags & kBLIP_MoreComing);

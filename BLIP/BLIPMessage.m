@@ -18,8 +18,6 @@
 #import "BLIPConnection.h"
 #import "BLIP_Internal.h"
 
-#import "Logging.h"
-#import "Test.h"
 #import "ExceptionUtils.h"
 #import "MYData.h"
 #import "MYBuffer+Zip.h"
@@ -318,7 +316,7 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
     void* pos = MYEncodeVarUInt(frame.mutableBytes, _number);
     MYEncodeVarUInt(pos, _flags);
 
-    LogTo(BLIPVerbose,@"%@ pushing frame, bytes %lu-%lu%@", self,
+    LogVerbose(BLIP,@"%@ pushing frame, bytes %lu-%lu%@", self,
           (unsigned long)prevBytesWritten, (unsigned long)_bytesWritten,
           (*outMoreComing ? @"" : @" (finished)"));
     if (_onDataSent)
@@ -346,7 +344,7 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
 
 // Parses the next incoming frame.
 - (BOOL) _receivedFrameWithFlags: (BLIPMessageFlags)flags body: (NSData*)frameBody {
-    LogTo(BLIPVerbose,@"%@ rcvd bytes %lu-%lu, flags=%x",
+    LogVerbose(BLIP,@"%@ rcvd bytes %lu-%lu, flags=%x",
           self, (unsigned long)_bytesReceived, (unsigned long)_bytesReceived+frameBody.length, flags);
     Assert(!_isMine);
     Assert(_flags & kBLIP_MoreComing);
@@ -387,7 +385,7 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
     }
 
     if (_properties && _onDataReceived) {
-        LogTo(BLIPVerbose, @"%@ -> calling onDataReceived(%lu bytes)",
+        LogVerbose(BLIP, @"%@ -> calling onDataReceived(%lu bytes)",
               self, (unsigned long)_encodedBody.maxLength);
         _onDataReceived(self, _encodedBody);
     }

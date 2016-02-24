@@ -16,9 +16,9 @@
 #import "BLIPPocketSocketListener.h"
 #import "BLIPPocketSocket_Internal.h"
 #import "BLIPConnection+Transport.h"
+#import "BLIP_Internal.h"
 #import "PSWebSocket.h"
 #import "PSWebSocketServer.h"
-#import "Test.h"
 
 
 @interface BLIPPocketSocketListener () <PSWebSocketServerDelegate>

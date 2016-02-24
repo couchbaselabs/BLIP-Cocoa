@@ -14,9 +14,12 @@
 //  and limitations under the License.
 
 #import "BLIPHTTPLogic.h"
-#import "Logging.h"
+#import "MYLogging.h"
 #import "Test.h"
 #import "MYURLUtils.h"
+
+
+UsingLogDomain(BLIP);
 
 
 #define kMaxRedirects 10
@@ -151,7 +154,7 @@
             // For some reason the password sometimes isn't accessible, even though we checked
             // .hasPassword when setting _credential earlier. (See #195.) Keychain bug??
             // If this happens, try looking up the credential again:
-            LogTo(ChangeTracker, @"Huh, couldn't get password of %@; trying again", _credential);
+            Log(@"Huh, couldn't get password of %@; trying again", _credential);
             _credential = [self credentialForAuthHeader:
                                                 getHeader(_responseMsg, @"WWW-Authenticate")];
             password = _credential.password;
@@ -227,7 +230,7 @@
             if (!_authorizationHeader) {
                 if (!_credential)
                     _credential = [self credentialForAuthHeader: authResponse];
-                LogTo(ChangeTracker, @"%@: Auth challenge; credential = %@", self, _credential);
+                LogTo(BLIP, @"%@: Auth challenge; credential = %@", self, _credential);
                 if (_credential) {
                     // Recoverable auth failure -- try again with new _credential:
                     _shouldRetry = YES;

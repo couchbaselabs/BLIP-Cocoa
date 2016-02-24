@@ -10,6 +10,15 @@
 #import "BLIPRequest.h"
 #import "BLIPResponse.h"
 #import "BLIPProperties.h"
+
+#import "MYLogging.h"
+#import "Test.h"
+
+
+UsingLogDomain(BLIP);
+UsingLogDomain(BLIPLifecycle);
+
+
 @class MYBuffer;
 @protocol MYReader, MYWriter;
 

@@ -18,8 +18,6 @@
 #import "BLIPConnection.h"
 #import "BLIP_Internal.h"
 
-#import "Logging.h"
-#import "Test.h"
 #import "ExceptionUtils.h"
 
 

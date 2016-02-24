@@ -16,9 +16,10 @@
 #import "BLIPPocketSocket_Internal.h"
 #import "BLIPConnection+Transport.h"
 #import "BLIPHTTPLogic.h"
+#import "BLIP_Internal.h"
 #import "PSWebSocket.h"
+
 #import "MYErrorUtils.h"
-#import "Test.h"
 
 
 @implementation BLIPPocketSocketConnection

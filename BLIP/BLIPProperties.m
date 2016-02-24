@@ -17,7 +17,7 @@
 #import "BLIPProperties.h"
 #import "MYBuffer.h"
 #import "MYData.h"
-#import "Logging.h"
+#import "MYLogging.h"
 #import "Test.h"
 #import "MYData.h"
 
