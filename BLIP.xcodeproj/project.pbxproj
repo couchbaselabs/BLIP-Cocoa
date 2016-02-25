@@ -95,6 +95,20 @@
 			remoteGlobalIDString = 275D3AEA1B0281AC0013B9A9;
 			remoteInfo = "BLIP-Mac";
 		};
+		271D1B5B1C7E7A4900E71CE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3B461B0283D10013B9A9;
+			remoteInfo = "MYUtilities-Mac";
+		};
+		271D1B5E1C7E7A5100E71CE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 275D3B131B0283380013B9A9;
+			remoteInfo = "MYUtilities-iOS";
+		};
 		275D3A161B0273020013B9A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 275D3A011B0273020013B9A9 /* Project object */;
@@ -425,6 +439,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				271D1B5C1C7E7A4900E71CE0 /* PBXTargetDependency */,
 				27187EBD1B03C0EC0057D7D2 /* PBXTargetDependency */,
 			);
 			name = "BLIPTests-Mac";
@@ -461,6 +476,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				271D1B5F1C7E7A5100E71CE0 /* PBXTargetDependency */,
 				275D3A171B0273020013B9A9 /* PBXTargetDependency */,
 			);
 			name = "BLIPTests-iOS";
@@ -717,6 +733,16 @@
 			isa = PBXTargetDependency;
 			target = 275D3AEA1B0281AC0013B9A9 /* BLIP-Mac */;
 			targetProxy = 27187EC61B03CC910057D7D2 /* PBXContainerItemProxy */;
+		};
+		271D1B5C1C7E7A4900E71CE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3B461B0283D10013B9A9 /* MYUtilities-Mac */;
+			targetProxy = 271D1B5B1C7E7A4900E71CE0 /* PBXContainerItemProxy */;
+		};
+		271D1B5F1C7E7A5100E71CE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 275D3B131B0283380013B9A9 /* MYUtilities-iOS */;
+			targetProxy = 271D1B5E1C7E7A5100E71CE0 /* PBXContainerItemProxy */;
 		};
 		275D3A171B0273020013B9A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
