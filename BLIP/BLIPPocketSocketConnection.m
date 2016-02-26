@@ -99,7 +99,7 @@
     } else if ([error.domain isEqualToString: @"WebSocketCloseCode"]) {
         [_webSocket closeWithCode: error.code reason: error.localizedFailureReason];
     } else {
-        Warn(@"BLIPPocketSocketConnection closing due to %@", error);
+        Warn(@"BLIPPocketSocketConnection closing due to %@", error.my_compactDescription);
         [_webSocket closeWithCode: 1008 /*PolicyError*/ reason: error.localizedDescription];
     }
 }

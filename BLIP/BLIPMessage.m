@@ -199,7 +199,7 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
                                                  options: NSJSONReadingAllowFragments
                                                    error: &error];
     if (!jsonObj)
-        Warn(@"Couldn't parse %@ body as JSON: %@", self, error.localizedFailureReason);
+        Warn(@"Couldn't parse %@ body as JSON: %@", self, error.my_compactDescription);
     return jsonObj;
 }
 
@@ -207,7 +207,7 @@ NSError *BLIPMakeError( int errorCode, NSString *message, ... ) {
 - (void) setBodyJSON: (id)jsonObj {
     NSError* error;
     NSData* body = [NSJSONSerialization dataWithJSONObject: jsonObj options: 0 error: &error];
-    Assert(body, @"Couldn't encode as JSON: %@", error.localizedFailureReason);
+    Assert(body, @"Couldn't encode as JSON: %@", error.my_compactDescription);
     self.body = body;
     self.contentType = @"application/json";
     self.compressed = (body.length > 100);

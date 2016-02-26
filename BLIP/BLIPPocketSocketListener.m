@@ -86,7 +86,7 @@
 - (void)server:(PSWebSocketServer *)server
         didFailWithError:(NSError *)error
 {
-    Warn(@"BLIPPocketSocketListener failed to open: %@", error);
+    Warn(@"BLIPPocketSocketListener failed to open: %@", error.my_compactDescription);
     [self listenerDidFailWithError: error];
 }
 

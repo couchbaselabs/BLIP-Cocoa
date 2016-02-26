@@ -183,7 +183,7 @@ static char kQueueSpecificKey = 0;
 
 // Subclasses call this
 - (void) transportDidCloseWithError:(NSError *)error {
-    LogTo(BLIP, @"%@ closed with error %@", self, error);
+    LogTo(BLIP, @"%@ closed with error %@", self, error.my_compactDescription);
     if (_transportIsOpen) {
         _transportIsOpen = NO;
         [self _callDelegate: @selector(blipConnection:didCloseWithError:)
