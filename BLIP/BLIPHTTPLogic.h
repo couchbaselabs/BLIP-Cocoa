@@ -61,4 +61,10 @@
     HTTP statuses like 404, only for failures to redirect or authenticate. */
 @property (readonly) NSError* error;
 
+/** Parses the value of a "WWW-Authenticate" header into a dictionary. In the dictionary, the key
+    "WWW-Authenticate" will contain the entire header, "Scheme" will contain the scheme (the first
+    word), and the first parameter and value will appear as an extra key/value. (Only the first
+    parameter is parsed; this could be improved.) */
++ (NSDictionary*) parseAuthHeader: (NSString*)authHeader;
+
 @end

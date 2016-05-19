@@ -239,8 +239,10 @@ UsingLogDomain(BLIP);
             }
             Log(@"%@: HTTP auth failed; sent Authorization: %@  ;  got WWW-Authenticate: %@",
                 self, _authorizationHeader, authResponse);
+            NSDictionary* challengeInfo = [[self class] parseAuthHeader: authResponse];
             NSDictionary* errorInfo = $dict({@"HTTPAuthorization", _authorizationHeader},
-                                            {@"HTTPAuthenticateHeader", authResponse});
+                                            {@"HTTPAuthenticateHeader", authResponse},
+                                            {@"AuthChallenge", challengeInfo});
             [self setErrorCode: NSURLErrorUserAuthenticationRequired userInfo: errorInfo];
             break;
         }
@@ -269,37 +271,55 @@ UsingLogDomain(BLIP);
 
 
 - (NSURLCredential*) credentialForAuthHeader: (NSString*)authHeader {
-    NSString* realm;
-    NSString* authenticationMethod;
-
     // Basic & digest auth: http://www.ietf.org/rfc/rfc2617.txt
-    if (!authHeader)
+    NSDictionary* challenge = [[self class] parseAuthHeader: authHeader];
+    if (!challenge)
         return nil;
 
     // Get the auth type:
-    if ([authHeader hasPrefix: @"Basic"])
+    NSString* authenticationMethod;
+    NSString* scheme = challenge[@"Scheme"];
+    if ([scheme isEqualToString: @"Basic"])
         authenticationMethod = NSURLAuthenticationMethodHTTPBasic;
-    else if ([authHeader hasPrefix: @"Digest"])
+    else if ([scheme isEqualToString: @"Digest"])
         authenticationMethod = NSURLAuthenticationMethodHTTPDigest;
     else
         return nil;
 
     // Get the realm:
-    NSRange r = [authHeader rangeOfString: @"realm=\""];
-    if (r.length == 0)
+    NSString* realm = challenge[@"realm"];
+    if (!realm)
         return nil;
-    NSUInteger start = NSMaxRange(r);
-    r = [authHeader rangeOfString: @"\"" options: 0
-                            range: NSMakeRange(start, authHeader.length - start)];
-    if (r.length == 0)
-        return nil;
-    realm = [authHeader substringWithRange: NSMakeRange(start, r.location - start)];
 
     NSURLCredential* cred;
     cred = [self.URL my_credentialForRealm: realm authenticationMethod: authenticationMethod];
     if (!cred.hasPassword)
         cred = nil;     // TODO: Add support for client certs
     return cred;
+}
+
+
++ (NSDictionary*) parseAuthHeader: (NSString*)authHeader {
+    if (!authHeader)
+        return nil;
+    NSMutableDictionary* challenge = $mdict();
+    NSRegularExpression* re = [NSRegularExpression
+                            regularExpressionWithPattern: @"\(\\w+)\\s+(\\w+)=((\\w+)|\"([^\"]+))"
+                            options: 0 error: NULL];
+    Assert(re);
+    NSArray<NSTextCheckingResult*>* matches = [re matchesInString: authHeader options: 0
+                                                            range: NSMakeRange(0, authHeader.length)];
+    NSTextCheckingResult* groups = matches.firstObject;
+    if (groups) {
+        NSString* key = [authHeader substringWithRange: [groups rangeAtIndex: 2]];
+        NSRange k = [groups rangeAtIndex: 4];
+        if (k.length == 0)
+            k = [groups rangeAtIndex: 5];
+        challenge[key] = [authHeader substringWithRange: k];
+        challenge[@"Scheme"] = [authHeader substringWithRange: [groups rangeAtIndex: 1]];
+    }
+    challenge[@"WWW-Authenticate"] = authHeader;
+    return challenge;
 }
 
 
