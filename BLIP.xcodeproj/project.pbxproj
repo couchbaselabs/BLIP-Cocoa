@@ -854,6 +854,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mooseyard.$(PRODUCT_NAME:rfc1034identifier)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -901,6 +902,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mooseyard.$(PRODUCT_NAME:rfc1034identifier)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
