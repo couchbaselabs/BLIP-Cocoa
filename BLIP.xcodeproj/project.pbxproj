@@ -26,7 +26,6 @@
 		27187EB21B03C03D0057D7D2 /* Properties_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 27187EAC1B03BFD80057D7D2 /* Properties_Test.m */; };
 		27187EBE1B03C0F80057D7D2 /* libBLIP-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B091B0281AC0013B9A9 /* libBLIP-Mac.a */; };
 		27187EBF1B03C0F80057D7D2 /* libMYUtilities-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B5A1B0283D10013B9A9 /* libMYUtilities-Mac.a */; };
-		271D1B4A1C7E19E000E71CE0 /* MYLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 271D1B491C7E19E000E71CE0 /* MYLogging.m */; };
 		275D3A151B0273020013B9A9 /* libBLIP-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3A091B0273020013B9A9 /* libBLIP-iOS.a */; };
 		275D3A3D1B02758A0013B9A9 /* BLIPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A261B02758A0013B9A9 /* BLIPConnection.m */; };
 		275D3A3E1B02758A0013B9A9 /* BLIPHTTPLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A291B02758A0013B9A9 /* BLIPHTTPLogic.m */; };
@@ -71,6 +70,8 @@
 		275D3B531B0283D10013B9A9 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A781B0276560013B9A9 /* Test.m */; };
 		275D3B541B0283D10013B9A9 /* Test_Assertions.m in Sources */ = {isa = PBXBuildFile; fileRef = 275D3A791B0276560013B9A9 /* Test_Assertions.m */; };
 		275D3B5D1B02845F0013B9A9 /* libMYUtilities-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 275D3B141B0283380013B9A9 /* libMYUtilities-iOS.a */; };
+		27B82ECB1D94D05D002265A7 /* MYLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 271D1B491C7E19E000E71CE0 /* MYLogging.m */; };
+		27B82ECC1D94D06A002265A7 /* MYLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 271D1B491C7E19E000E71CE0 /* MYLogging.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -651,7 +652,6 @@
 				275D3A3E1B02758A0013B9A9 /* BLIPHTTPLogic.m in Sources */,
 				275D3A411B02758A0013B9A9 /* BLIPPocketSocketConnection.m in Sources */,
 				275D3A441B02758A0013B9A9 /* BLIPProperties.m in Sources */,
-				271D1B4A1C7E19E000E71CE0 /* MYLogging.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B82ECB1D94D05D002265A7 /* MYLogging.m in Sources */,
 				275D3B2C1B0283740013B9A9 /* CollectionUtils.m in Sources */,
 				275D3B2E1B0283750013B9A9 /* ExceptionUtils.m in Sources */,
 				275D3B321B0283750013B9A9 /* MYBlockUtils.m in Sources */,
@@ -701,6 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B82ECC1D94D06A002265A7 /* MYLogging.m in Sources */,
 				275D3B481B0283D10013B9A9 /* CollectionUtils.m in Sources */,
 				275D3B491B0283D10013B9A9 /* ExceptionUtils.m in Sources */,
 				275D3B4B1B0283D10013B9A9 /* MYBlockUtils.m in Sources */,
