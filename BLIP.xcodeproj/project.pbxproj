@@ -544,7 +544,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = BLIP;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Couchbase, Inc";
 				TargetAttributes = {
 					27187EC01B03CC880057D7D2 = {
