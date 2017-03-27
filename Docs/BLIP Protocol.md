@@ -32,11 +32,12 @@ Every request or response message has a set of flags that can be set by the appl
 
 ### 1.2. Error Replies
 
-A reply can indicate an error, at either the BLIP level (i.e. couldn't deliver the request to the recipient application) or the application level. In an error reply, the message properties provide information about the error:
+A reply can indicate an error, at either the BLIP level (i.e. couldn't deliver the request to the recipient application) or the application level. In an error reply, the message properties provide structured information about the error:
 
 * The "Error-Code" property's value is a decimal integer expressed in ASCII, in the range of a signed 32-bit integer.
 * The "Error-Domain" property's value is a string denoting a domain in which the error code should be interpreted. If missing, its default value is "BLIP".
 * Other properties may provide additional data about the error; applications can define their own schema for this.
+* The message body, if non-empty, contains an error message in UTF-8 format.
 
 The "BLIP" error domain uses the HTTP status codes, insofar as they make sense, as its error codes. The ones used thus far are:
 
