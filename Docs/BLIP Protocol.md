@@ -151,11 +151,11 @@ The Request Number is the serial number of the request, as described above. (A r
 The Flags are as described in section 1.1, plus the more-coming flag described in 3.3. The encoding is defined as follows:
 ```
 TypeMask  = 0x07
-Compressed= 0x04
-Urgent    = 0x08
-NoReply   = 0x10
-MoreComing= 0x20
-Meta      = 0x40
+Compressed= 0x08
+Urgent    = 0x10
+NoReply   = 0x20
+MoreComing= 0x40
+Meta      = 0x80
 ```
 
 The `TypeMask` is actually a 3-bit field, not a flag. Of the 8 possible message types, the ones currently defined are:
