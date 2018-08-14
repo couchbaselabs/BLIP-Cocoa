@@ -238,7 +238,7 @@ UsingLogDomain(BLIP);
                 }
             }
             Log(@"%@: HTTP auth failed; sent Authorization: %@  ;  got WWW-Authenticate: %@",
-                self, _authorizationHeader, authResponse);
+                self, (_authorizationHeader ? @"XXXX" : _authorizationHeader), authResponse);
             NSDictionary* challengeInfo = [[self class] parseAuthHeader: authResponse];
             NSDictionary* errorInfo = $dict({@"HTTPAuthorization", _authorizationHeader},
                                             {@"HTTPAuthenticateHeader", authResponse},
