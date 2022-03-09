@@ -1,3 +1,5 @@
+⚠️ This repo is not maintained, is outdated, and will no longer receive updates.
+
 # BLIP-Cocoa
 
 This is the latest Objective-C implementation of the BLIP network messaging protocol. [Version 2 of BLIP][BLIPDOCS] is layered on WebSockets instead of running directly over a TCP socket. The WebSocket implementation used here is [PocketSocket][POCKETSOCKET]
